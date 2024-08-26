@@ -131,18 +131,18 @@ def countDown(count,art,set):
         
         ##Show double zeros if there are no seconds left for visual appeal
         if secondsLeft==0:
-            sys.stdout.write('\r       {min}:00    Set {setLeft}'.format(min=int(minutes), setLeft=set))
+            sys.stdout.write('\r       {min}:00    Set {setLeft} '.format(min=int(minutes), setLeft=set))
             time.sleep(1)
             seconds=seconds-1
         elif secondsLeft>0 and secondsLeft<10:
             ##Adding this exception so that the timer shows a zero infront of a single digit second. This way the format is uniform
-            sys.stdout.write('\r       {min}:0{sec}    Set {setLeft}'.format(min=int(minutes),sec=int(secondsLeft), setLeft=set))
+            sys.stdout.write('\r       {min}:0{sec}    Set {setLeft} '.format(min=int(minutes),sec=int(secondsLeft), setLeft=set))
             time.sleep(1)
             seconds=seconds-1
         else:
             ##Write an updating countdown 
             ##The space after the seconds value allows us to overwrite the second zero in the seconds tab as stdout doesn't overwrite the 
-            sys.stdout.write('\r       {min}:{sec}    Set {setLeft}'.format(min=int(minutes),sec=int(secondsLeft), setLeft=set))
+            sys.stdout.write('\r       {min}:{sec}    Set {setLeft} '.format(min=int(minutes),sec=int(secondsLeft), setLeft=set))
             time.sleep(1)
             seconds=seconds-1
         
