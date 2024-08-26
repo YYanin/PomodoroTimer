@@ -3,3 +3,23 @@
 Description:
         A terminal based pomodoro timer/ interval timer
 
+
+
+Input:
+
+Time in min for both the work time and rest time. Also takes in the number of work sessions you want to do
+
+After the timer runs out, the code makes a beeping noise on all platforms via a a bell character. 
+
+When all work sets are complete, the timer beeps 3 times
+
+
+***NOTE
+Some terminals have an option to ingnore said bell characters. Make sure the setting is enabled
+
+
+
+Sources for the ascii art:
+
+https://www.asciiart.eu/
+https://patorjk.com/software/taag/#p=display&f=Big&t=Good%20Job%0A

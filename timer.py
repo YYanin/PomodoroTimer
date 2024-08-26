@@ -10,25 +10,45 @@ import os
 
 
 def main():
-
+##https://www.asciiart.eu/animals/dogs
+##No artist mentioned
     dogWorking="""
+ __          __        _    
+ \ \        / /       | |   
+  \ \  /\  / /__  _ __| | __
+   \ \/  \/ / _ \| '__| |/ /
+    \  /\  / (_) | |  |   < 
+     \/  \/ \___/|_|  |_|\_\\
+                            
+                                
+
     
-             .--~~,__
-:-....,-------`~~'._.'
- `-,,,  ,_      ;'~U'
-  _,-' ,'`-__; '--.
- (_/'~~      ''''(;
+                .--~~,__
+    :-....,-------`~~'._.'
+    `-,,,  ,_      ;'~U'
+    _,-' ,'`-__; '--.
+    (_/'~~      ''''(;
     
     """
     
     clearScreen()
     
-    dogResting="""
     
-  __    __
-o-''))_____\\
-"--__/ * * * )
-c_c__/-c____/
+##https://www.asciiart.eu/animals/dogs
+##Art by Linda Ball    
+    dogResting="""
+  _____           _   
+ |  __ \         | |  
+ | |__) |___  ___| |_ 
+ |  _  // _ \/ __| __|
+ | | \ \  __/\__ \ |_ 
+ |_|  \_\___||___/\__|
+                      
+                          
+           __    __
+        o-''))_____\\
+        "--__/ * * * )
+        c_c__/-c____/
     
     """
     
@@ -43,18 +63,20 @@ c_c__/-c____/
     
     
     #Create the main loop
-    while z>=0:
+    while z>0:
         ##Run the work countdown
         countDown(x,dogWorking)
-        ##Now we can run the rest period
-        countDown(y,dogResting)
         
-        z=z-1    
+        z=z-1 
+        if z>0:
+            ##Now we can run the rest period
+            countDown(y,dogResting)
+           
     
 
     
     ## Now we can add the end screen
-    
+    end()
     
     
     
@@ -98,30 +120,68 @@ def countDown(count,art):
         
         ##Show double zeros if there are no seconds left for visual appeal
         if secondsLeft==0:
-            sys.stdout.write('\r        {min}:00 '.format(min=int(minutes)))
+            sys.stdout.write('\r            {min}:00 '.format(min=int(minutes)))
             time.sleep(1)
             seconds=seconds-1  
         else:
             ##Write an updating countdown 
             ##The space after the seconds value allows us to overwrite the second zero in the seconds tab as stdout doesn't overwrite the 
-            sys.stdout.write('\r        {min}:{sec} '.format(min=int(minutes),sec=int(secondsLeft)))
+            sys.stdout.write('\r            {min}:{sec} '.format(min=int(minutes),sec=int(secondsLeft)))
             time.sleep(1)
             seconds=seconds-1
         
     clearScreen()
+    #Make a beeping sound
+    print('\a')
+    
+    
     return 0
 
 def end():
     clearScreen()
     
     x="""
+
+   _____                 _        _       _     
+  / ____|               | |      | |     | |    
+ | |  __  ___   ___   __| |      | | ___ | |__  
+ | | |_ |/ _ \ / _ \ / _` |  _   | |/ _ \| '_ \ 
+ | |__| | (_) | (_) | (_| | | |__| | (_) | |_) |
+  \_____|\___/ \___/ \__,_|  \____/ \___/|_.__/ 
+                                                
+                                                    
     
-    
-    
+  _dMMMb._              .adOOOOOOOOOba.              _,dMMMb_
+ dP'  ~YMMb            dOOOOOOOOOOOOOOOb            aMMP~  `Yb
+ V      ~"Mb          dOOOOOOOOOOOOOOOOOb          dM"~      V
+          `Mb.       dOOOOOOOOOOOOOOOOOOOb       ,dM'
+           `YMb._   |OOOOOOOOOOOOOOOOOOOOO|   _,dMP'
+      __     `YMMM| OP'~"YOOOOOOOOOOOP"~`YO |MMMP'     __
+    ,dMMMb.     ~~' OO     `YOOOOOP'     OO `~~     ,dMMMb.
+ _,dP~  `YMba_      OOb      `OOO'      dOO      _aMMP'  ~Yb._
+
+             `YMMMM\`OOOo     OOO     oOOO'/MMMMP'
+     ,aa.     `~YMMb `OOOb._,dOOOb._,dOOO'dMMP~'       ,aa.
+   ,dMYYMba._         `OOOOOOOOOOOOOOOOO'          _,adMYYMb.
+  ,MP'   `YMMba._      OOOOOOOOOOOOOOOOO       _,adMMP'   `YM.
+  MP'        ~YMMMba._ YOOOOPVVVVVYOOOOP  _,adMMMMP~       `YM
+  YMb           ~YMMMM\`OOOOI`````IOOOOO'/MMMMP~           dMP
+   `Mb.           `YMMMb`OOOI,,,,,IOOOO'dMMMP'           ,dM'
+     `'                  `OObNNNNNdOO'                   `'
+                           `~OOOOO~'   
     
     """
-    #print()
+    print(x)
+    
+    #Make a beeping sound 3 times
+    print('\a')
+    time.sleep(2)
+    print('\a')
+    time.sleep(2)
+    print('\a')
 
 
 if __name__== '__main__':
     main()
+    
+                
