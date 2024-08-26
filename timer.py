@@ -25,7 +25,7 @@ def countDown(work,rest,set):
     seconds=work*60
     
     
-    while(seconds!=0):
+    while(seconds>=0):
         
         #Check how many min are left
         minutes=seconds/60
@@ -40,9 +40,13 @@ def countDown(work,rest,set):
             sys.stdout.write('\r{min}:00'.format(min=int(minutes)))
             time.sleep(1)
             seconds=seconds-1
+        ##elif secondsLeft==0 and minutes==0:
+            ##This elif will be triggered when the timer reaches zero
+            
         else:
             ##Write an updating countdown 
-            sys.stdout.write('\r{min}:{sec}'.format(min=int(minutes),sec=int(secondsLeft)))
+            ##The space after the seconds value allows us to overwrite the second zero in the seconds tab as stdout doesn't overwrite the 
+            sys.stdout.write('\r{min}:{sec} '.format(min=int(minutes),sec=int(secondsLeft)))
             time.sleep(1)
             seconds=seconds-1
         
