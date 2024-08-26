@@ -91,12 +91,20 @@ def clearScreen():
 
 def getInput(prompt):
 
-    ##Grab the values and convert them to int
-    x=int(input(prompt))
-    
-    clearScreen()
-    
-    return x
+    ##Grab the value
+    y=input(prompt)
+    if y.isdigit():
+        #Clear the screen and convert the value to int
+        clearScreen()
+        x=int(y)
+        return x
+    else:
+        ##Recurse back into the function to get a valid input if said input is anything other than a positive integer
+        clearScreen()
+        x=getInput("Invalid Input. Please enter a positive integer: ")
+        clearScreen()
+        return x
+
 
 
 
@@ -122,7 +130,12 @@ def countDown(count,art):
         if secondsLeft==0:
             sys.stdout.write('\r            {min}:00 '.format(min=int(minutes)))
             time.sleep(1)
-            seconds=seconds-1  
+            seconds=seconds-1
+        elif secondsLeft>0 and secondsLeft<10:
+            ##Adding this exception so that the timer shows a zero infront of a single digit second. This way the format is uniform
+            sys.stdout.write('\r            {min}:0{sec} '.format(min=int(minutes),sec=int(secondsLeft)))
+            time.sleep(1)
+            seconds=seconds-1
         else:
             ##Write an updating countdown 
             ##The space after the seconds value allows us to overwrite the second zero in the seconds tab as stdout doesn't overwrite the 

@@ -7,17 +7,23 @@ Description:
 
 Input:
 
-Time in min for both the work time and rest time. Also takes in the number of work sessions you want to do
+Time in min for both the work time and rest time. Also takes in the number of work sessions you want to do. The input has to be a positive integer. If you put anything else, the timer will not accept it and will recursevly ask you for a valid input.
+
+I'm not adding hours at the moment as usually people prefer time intervals of less than an hour
 
 After the timer runs out, the code makes a beeping noise on all platforms via a a bell character. 
 
 When all work sets are complete, the timer beeps 3 times
 
 
+
+
 ***NOTE
 Some terminals have an option to ingnore said bell characters. Make sure the setting is enabled
 
+command to execure the script:
 
+python3 timer.py
 
 Sources for the ascii art:
 
