@@ -37,12 +37,12 @@ def main():
 ##https://www.asciiart.eu/animals/dogs
 ##Art by Linda Ball    
     dogResting="""
-  _____           _   
- |  __ \         | |  
- | |__) |___  ___| |_ 
- |  _  // _ \/ __| __|
- | | \ \  __/\__ \ |_ 
- |_|  \_\___||___/\__|
+     _____           _   
+    |  __ \         | |  
+    | |__) |___  ___| |_ 
+    |  _  // _ \/ __| __|
+    | | \ \  __/\__ \ |_ 
+    |_|  \_\___||___/\__|
                       
                           
            __    __
@@ -61,17 +61,20 @@ def main():
     
     z=getInput(("Enter how many sets of work you want to do: "))
     
+    ##Define a value for the first set
+    setPosition=z-(z-1)
     
     #Create the main loop
     while z>0:
         ##Run the work countdown
-        countDown(x,dogWorking)
+        countDown(x,dogWorking,setPosition)
         
-        z=z-1 
         if z>0:
             ##Now we can run the rest period
-            countDown(y,dogResting)
-           
+            countDown(y,dogResting,setPosition)
+        
+        setPosition=setPosition+1
+        z=z-1 
     
 
     
@@ -108,7 +111,7 @@ def getInput(prompt):
 
 
 
-def countDown(count,art):
+def countDown(count,art,set):
     
     ##Convert Min to Sec
     seconds=count*60
@@ -128,18 +131,18 @@ def countDown(count,art):
         
         ##Show double zeros if there are no seconds left for visual appeal
         if secondsLeft==0:
-            sys.stdout.write('\r            {min}:00 '.format(min=int(minutes)))
+            sys.stdout.write('\r       {min}:00    Set {setLeft}'.format(min=int(minutes), setLeft=set))
             time.sleep(1)
             seconds=seconds-1
         elif secondsLeft>0 and secondsLeft<10:
             ##Adding this exception so that the timer shows a zero infront of a single digit second. This way the format is uniform
-            sys.stdout.write('\r            {min}:0{sec} '.format(min=int(minutes),sec=int(secondsLeft)))
+            sys.stdout.write('\r       {min}:0{sec}    Set {setLeft}'.format(min=int(minutes),sec=int(secondsLeft), setLeft=set))
             time.sleep(1)
             seconds=seconds-1
         else:
             ##Write an updating countdown 
             ##The space after the seconds value allows us to overwrite the second zero in the seconds tab as stdout doesn't overwrite the 
-            sys.stdout.write('\r            {min}:{sec} '.format(min=int(minutes),sec=int(secondsLeft)))
+            sys.stdout.write('\r       {min}:{sec}    Set {setLeft}'.format(min=int(minutes),sec=int(secondsLeft), setLeft=set))
             time.sleep(1)
             seconds=seconds-1
         
