@@ -117,7 +117,7 @@ def Pomodoro():
         ##Run the work countdown
         countDown(x,dogWorking,setPosition)
         
-        if z>0:
+        if z>1:
             ##Now we can run the rest period
             countDown(y,dogResting,setPosition)
         
