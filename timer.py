@@ -10,8 +10,56 @@ import os
 
 
 def main():
-##https://www.asciiart.eu/animals/dogs
-##No artist mentioned
+
+    clearScreen()
+
+
+    print("Available modes: Pomodoro=1, Timer=2")
+    x=getInput("Enter the number assigned to a mode you'd like to use: ")
+
+    if x==1:
+        Pomodoro()
+    elif x==2:
+        RegTimer()
+        
+    return 0
+
+
+#Function for a regular timer countdown
+def RegTimer():
+    x="""
+
+                  .
+
+                   .
+         /^\     .
+    /\   "V"
+   /__\   I      O  o
+  //..\\  I     .
+  \].`[/  I
+  /l\/j\  (]    .  O
+ /. ~~ ,\/I          .
+ \\L__j^\/I       o
+  \/--v}  I     o   .
+  |    |  I   _________
+  |    |  I c(`       ')o
+  |    l  I   \.     ,/
+_/j  L l\_!  _//^---^\\_    
+
+
+    """
+
+    y=getInput("Time in min: ")
+
+    clearScreen()
+    countDown(y, x, 1)
+
+    end()
+
+##Pomodoro timer mode main function
+def Pomodoro():
+    ##https://www.asciiart.eu/animals/dogs
+    ##No artist mentioned
     dogWorking="""
  __          __        _    
  \ \        / /       | |   
@@ -81,12 +129,6 @@ def main():
     ## Now we can add the end screen
     end()
     
-    
-    
-    
-    return 0
-
-
 
 def clearScreen():
     # clear the console screen
